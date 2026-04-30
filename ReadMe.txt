@@ -10,6 +10,7 @@ File Structure:
 - wozniak_aae568_finalproject_fullintegration.m
 	Main implementation, fully simulates KF, COV for task 
 	assignment, and tube-based MPC
+	**Primary algorithm to run**
 
 - wozniak_aae568_finalproject_mpctube_QRtuning.m
 	Tuning algorithm that performs a grid search of the Q,R
@@ -17,6 +18,14 @@ File Structure:
 	control constraints were active, and returns the gains with
 	minimum control saturation (informs TRMPC implementation)
 
+- wozniak_aae568_finalproject_nonlinearAttempt.m
+	Extension to main implementation that attempts to use nonlinear
+	dynamics. Warning: this algorithm does not converge and is not
+	recommended. However, it showcases the full structural 
+	implementation of nonlinear dynamics and demonstrates the mission
+	phases where the system performance is no longer sufficient.
+	This file would be a starting point for future work in 
+	bridging the sim-to-real gap.
 --------------------------------------------------------------------------
 How to Run:
 --------------------------------------------------------------------------
@@ -36,14 +45,8 @@ Case II - Tuning Q,R Gains then Running
 	algorithm
 	Run wozniak_aae568_finalproject_fullintegration.m
 
-Case III - Attempt of Linear Dynamics
-- To attempt debugging with nonlinear dynamics (warning: COV does
-	not converge and this inhibits the algorithm from running), 
-	you must first modify spacecraft_dynamics_linear on Line 465 
-	to instead call spacecraft_dynamics
-
-- Then, open wozniak_aae568_finalproject_fullintegration.m and click Run
-
+Case III - Attempt Running with Nonlinear Dynamics
+- Open wozniak_aae568_finalproject_nonlinearAttempt.m and click Run
 --------------------------------------------------------------------------
 Contact:
 --------------------------------------------------------------------------
